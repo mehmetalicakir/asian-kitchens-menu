@@ -107,6 +107,22 @@ return item;
 
 // Item Design (End)
 
+
+// Add Filter Buttons (Start)
+categoryArr = ["All", "Korea", "Japan", "China"]
+
+let buttonSection = document.querySelector(".btn-container")
+
+  buttonSection.innerHTML = "";
+  categoryArr.forEach(element => {
+  buttonSection.innerHTML += `<button class="btn btn-outline-dark btn-item" data-id="${element}">${element}</button>`
+  });
+
+
+// Add Filter Buttons (End)
+
+
+
 // Menu Placement (Start)
 
 function menuPlacement() {
@@ -119,3 +135,4 @@ function menuPlacement() {
 menuPlacement();
 
 // Menu Placement (End)
+
