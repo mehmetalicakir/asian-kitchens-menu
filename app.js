@@ -81,3 +81,41 @@ const menu = [
     desc: `Red bean paste dessert, serving with honey.`,
   },
 ];
+
+
+
+let menuSection = document.querySelector(".section-center")
+
+// Item Design (Start)
+function itemDesign(food) {
+  let item = `<div class="menu-items col-lg-6 col-sm-12">
+  <img src="${food.img}" alt="${food.title}" class="photo">
+  <div class="menu-info">
+    <div class="menu-title">
+      <h4>${food.title}</h4>
+      <h4 class="price">${food.price}</h4>
+    </div>
+    <div class="menu-text">
+      ${food.desc}
+    </div>
+  </div>
+</div>`
+return item;
+};
+
+
+
+// Item Design (End)
+
+// Menu Placement (Start)
+
+function menuPlacement() {
+  menuSection.innerHTML = "";
+  menu.forEach(element => {
+  menuSection.innerHTML += (" " + itemDesign(element));
+  });
+};
+
+menuPlacement();
+
+// Menu Placement (End)
