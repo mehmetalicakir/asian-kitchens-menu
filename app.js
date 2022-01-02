@@ -115,8 +115,8 @@ let buttonSection = document.querySelector(".btn-container")
 
   buttonSection.innerHTML = "";
   categoryArr.forEach(element => {
-  buttonSection.innerHTML += `<button class="btn btn-outline-dark btn-item" data-id="${element}">${element}</button>`
-  });
+  buttonSection.innerHTML += `<button onclick="menuPlacement('${element}')" class="btn btn-outline-dark btn-item" data-id="${element}">${element}</button>`
+});
 
 
 // Add Filter Buttons (End)
@@ -125,11 +125,22 @@ let buttonSection = document.querySelector(".btn-container")
 
 // Menu Placement (Start)
 
-function menuPlacement() {
+function menuPlacement(categoryName="All") {
   menuSection.innerHTML = "";
-  menu.forEach(element => {
-  menuSection.innerHTML += (" " + itemDesign(element));
-  });
+  if (categoryName!="All") {
+    menu.forEach(element => {
+      if (categoryName==element.category) {
+        menuSection.innerHTML += (" " + itemDesign(element));
+      }
+      });
+      console.log(categoryName);
+  } else {
+    menu.forEach(element => {
+      menuSection.innerHTML += (" " + itemDesign(element));
+      });
+      console.log(categoryName);
+  }
+  
 };
 
 menuPlacement();
